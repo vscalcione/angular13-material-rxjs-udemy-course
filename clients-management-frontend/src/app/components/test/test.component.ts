@@ -1,5 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { distinct, from, Observable, of } from 'rxjs';
+import {
+  concat,
+  distinct,
+  filter,
+  first,
+  from,
+  interval,
+  last,
+  map,
+  mapTo,
+  merge,
+  Observable,
+  of,
+  take,
+  timer,
+} from 'rxjs';
 
 @Component({
   selector: 'app-test',
@@ -41,5 +56,47 @@ export class TestComponent implements OnInit {
     from(this.clients)
       .pipe(distinct((a) => a.name))
       .subscribe(console.log);
+
+    console.log('Rxjs first operator');
+    from(this.clients).pipe(first()).subscribe(console.log);
+
+    console.log('Rxjs last operator');
+    from(this.clients).pipe(last()).subscribe(console.log);
+
+    console.log('Rxjs filter operator');
+    from(this.clients)
+      .pipe(
+        filter((elements) => elements.active === false),
+        map((elements) => elements.name)
+      )
+      .subscribe(console.log);
+
+    console.log('Rxjs timer operator');
+    const firstRequest = timer(3000).pipe(mapTo('First request....'));
+    const secondRequest = timer(1000).pipe(mapTo('Second request...'));
+
+    concat(firstRequest, secondRequest).subscribe((message: any) =>
+      console.log(message)
+    );
+
+    console.log('Rxjs merge operator');
+    const firstObservable = of(1, 2, 3);
+    const secondObservable = of(4, 5, 6);
+    const merged = merge(firstObservable, secondObservable).subscribe(
+      (element) => console.log(element)
+    );
+
+    console.log('Use of getFramework method');
+    const myFramework = this.getFramework()
+      .pipe(map((name) => `${name} is the best framework`))
+      .subscribe((result) => console.log(`${result}`));
+  }
+
+  getFramework(): Observable<String> {
+    const frameworks = ['Angular', 'React.js', 'Vue.js'];
+    return interval(2000).pipe(
+      map((index) => frameworks[index]),
+      take(3)
+    );
   }
 }

@@ -2,17 +2,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  flex-direction: row;
+  border: 1px solid black;
+  height: 200px;
+  align-items: flex-start;
 }
 
 .flex-item {
   width: 200px;
   height: 150px;
   background: tomato;
-  margin-top: 5px;
+  margin-top: 6px;
   color: white;
   font-weight: bold;
   font-size: 3em;
   text-align: center;
+  flex-grow: 1;
+  flex-basis: 0;
   line-height: 150px;
 }
 
@@ -20,4 +26,19 @@
   .flex-container {
     flex-direction: column;
   }
+}
+
+.item1 {
+  align-self: stretch;
+}
+
+.item2 {
+  align-self: flex-end;
+  flex-grow: 1;
+  flex-shrink: 5;
+  flex-basis: 300px;
+}
+
+.item3 {
+  align-self: center;
 }

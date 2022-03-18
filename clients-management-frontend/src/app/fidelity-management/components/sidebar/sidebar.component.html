@@ -1,5 +1,5 @@
 <mat-drawer-container class="app-sidenav-container">
-    <mat-drawer #drawer mode="side" opened class="app-sidenav mat-elevation-z10">
+    <mat-drawer #drawer [mode]="isScreenSmall ? 'over' : 'side'" [opened]="!isScreenSmall" class="app-sidenav mat-elevation-z10">
         <mat-toolbar color="primary">
             Clients
         </mat-toolbar>

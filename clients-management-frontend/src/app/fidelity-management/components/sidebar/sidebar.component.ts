@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {
+  BreakpointObserver,
+  Breakpoints,
+  BreakpointState,
+} from '@angular/cdk/layout';
+
+const SMALL_WIDTH_BK = 720;
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +20,18 @@ export class SidebarComponent implements OnInit {
     { name: 'Item 4' },
   ];
 
-  constructor() {}
+  @Input()
+  public isScreenSmall?: boolean;
 
-  ngOnInit(): void {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe([`(max-width: ${SMALL_WIDTH_BK}px`])
+      .subscribe((state: BreakpointState) => {
+        console.log(state.matches);
+        this.isScreenSmall = state.matches;
+      });
+    //observe([Breakpoints.XSmall, Breakpoints.Small]);
+  }
 }

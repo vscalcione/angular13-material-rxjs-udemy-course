@@ -8,11 +8,11 @@ import {
 const SMALL_WIDTH_BK = 720;
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidenavComponent implements OnInit {
   items = [
     { name: 'Item 1' },
     { name: 'Item 2' },

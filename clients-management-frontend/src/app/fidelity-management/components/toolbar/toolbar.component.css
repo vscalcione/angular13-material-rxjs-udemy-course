@@ -1,5 +1,12 @@
+:root {
+  --icon-width: 56px;
+}
+
 .sidenav-toggle {
   display: none;
+  padding: 0;
+  margin: 8px;
+  min-width: var(--icon-width);
 }
 
 @media (max-width: 720px) {
@@ -8,4 +15,12 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+mat-icon {
+  font-size: 30px;
+  height: var(--icon-width);
+  width: var(--icon-width);
+  line-height: var(--icon-width);
+  color: white;
 }

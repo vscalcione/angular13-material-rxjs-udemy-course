@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FidelityManagementComponent } from './fidelity-management.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -31,7 +31,7 @@ const routes: Routes = [
     FidelityManagementComponent,
     ToolbarComponent,
     MainContentComponent,
-    SidebarComponent,
+    SidenavComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +39,6 @@ const routes: Routes = [
     MaterialModule,
     RouterModule.forChild(routes),
   ],
-  exports: [ToolbarComponent, MainContentComponent, SidebarComponent],
+  exports: [ToolbarComponent, MainContentComponent, SidenavComponent],
 })
 export class FidelityManagementModule {}

@@ -1,0 +1,11 @@
+.sidenav-toggle {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .sidenav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

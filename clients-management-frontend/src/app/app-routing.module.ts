@@ -6,7 +6,14 @@ const routes: Routes = [
     path: 'demo',
     loadChildren: () => import('./demo/demo.module').then((m) => m.DemoModule),
   },
-  { path: '**', redirectTo: 'demo' },
+  {
+    path: 'fidelity-management',
+    loadChildren: () =>
+      import('./fidelity-management/fidelity-management.module').then(
+        (m) => m.FidelityManagementModule
+      ),
+  },
+  { path: '**', redirectTo: 'fidelity-management' },
 ];
 
 @NgModule({

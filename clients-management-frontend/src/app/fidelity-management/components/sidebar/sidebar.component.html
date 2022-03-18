@@ -1,0 +1,18 @@
+<mat-drawer-container class="app-sidenav-container">
+    <mat-drawer #drawer mode="side" opened class="app-sidenav mat-elevation-z10">
+        <mat-toolbar color="primary">
+            Clients
+        </mat-toolbar>
+        <mat-list role="list">
+            <mat-list-item role="listitem">Item 1</mat-list-item>
+            <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+            <mat-list-item role="listitem">Item 4</mat-list-item>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content class="app-sidenav-content">
+        <app-toolbar></app-toolbar>
+        <router-outlet></router-outlet>
+        <button type="button" mat-button (click)="drawer.open()">Apri sidenav</button>
+    </mat-drawer-content>
+</mat-drawer-container>

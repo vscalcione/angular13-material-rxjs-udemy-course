@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
 -- Dump dei dati della tabella fidelity_managment.clients: ~11 rows (circa)
 DELETE FROM `clients`;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` (`ID`, `NAME`, `SURNAME`, `EMAIL`, `COMUNE`, `STATE`) VALUES
+INSERT INTO `clients` (`CODICE_FIDELITY`, `NAME`, `SURNAME`, `EMAIL`, `COMUNE`, `STATE`) VALUES
 	('67000086  ', 'Carmelo', 'Rossi', 'carmelo.rossi@gmail.', 'SASSARI', 1),
 	('67000285  ', 'Vittorio', 'Bianchi', 'vittorio.bianchi@gma', 'ALGHERO', 1),
 	('67000663  ', 'Irene', 'Grillo', 'irene.grillo@gmail.c', 'BORONEDDU', 1),
@@ -62,17 +62,17 @@ INSERT INTO `sysdiagrams` (`name`, `principal_id`, `diagram_id`, `version`, `def
 
 -- Dump della struttura di tabella fidelity_managment.transactions
 CREATE TABLE IF NOT EXISTS `transactions` (
-  `Id` smallint(6) DEFAULT NULL,
-  `Data` varchar(10) DEFAULT NULL,
-  `PuntoVendita` varchar(19) DEFAULT NULL,
-  `CodFid` varchar(10) DEFAULT NULL,
-  `Bollini` smallint(6) DEFAULT NULL
+  `ID` smallint(6) DEFAULT NULL,
+  `DATA` varchar(10) DEFAULT NULL,
+  `PUNTO_VENDITA` varchar(19) DEFAULT NULL,
+  `CODICE_FIDELITY` varchar(10) DEFAULT NULL,
+  `BOLLINI` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dump dei dati della tabella fidelity_managment.transactions: ~146 rows (circa)
 DELETE FROM `transactions`;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` (`Id`, `Data`, `PuntoVendita`, `CodFid`, `Bollini`) VALUES
+INSERT INTO `transactions` (`ID`, `DATA`, `PUNTO_VENDITA`, `CODICE_FIDELITY`, `BOLLINI`) VALUES
 	(2, '2020-07-01', 'PDV CENTRALE', '67000086  ', 11),
 	(3, '2020-07-01', 'PDV CENTRALE', '67100019  ', 21),
 	(4, '2020-07-01', 'PDV CENTRALE', '67100316  ', 6),
